@@ -1,77 +1,56 @@
 import {type} from "os";
+import React from "react";
 
 type AccordionPropsType = {
     titleValue: string
     collapsed: boolean
+    onChange: () => void
 }
 
 function Accordion(props: AccordionPropsType) {
-    if (props.collapsed === true) {
-        return (
-            <div>
-                <AccordionTitle title={props.titleValue}/>
-                <AccordionBody title={props.titleValue}/>
-            </div>
-        );
-    }
-    //button.onclick = function () {
 
-    if (props.collapsed === false) {
-        return (
-            <div>
-                <AccordionTitle title={props.titleValue}/>
-            </div>
-        );
-    }
     return (
         <div>
-            <AccordionTitle title={props.titleValue}/>
-            <AccordionBody title={props.titleValue}/>
+            <AccordionTitle
+                title={props.titleValue}
+                onChange={props.onChange}
+            />
+            {!props.collapsed && <AccordionBody />}
         </div>
     );
 }
+
 
 export default Accordion;
 
 type AccordionTitlePropsType = {
     title: string
+    onChange: () => void
 
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     console.log("AccordionTitle rendering");
-    if (props.title === "h2") {
-        return (
-            <button id="collapsedMove"><h2>Menu</h2></button>
-        );
-    }
+
     return (
-        <button id="collapsedMove"><h3>Menu</h3></button>
+        <h3 onClick={props.onChange}>-- {props.title} --</h3>
+
     );
 }
 
-type AccordionBodyPropsType = {
-    title: string
-}
 
-function AccordionBody(props: AccordionBodyPropsType) {
+// type AccordionBodyPropsType = {
+//     title: number
+// }
+
+function AccordionBody() {
     console.log("AccordionBody rendering");
-    if (props.title === "b") {
-        return (
 
-            <ul>
-                <li>11</li>
-                <li>22</li>
-                <li>33</li>
-            </ul>
-
-        );
-    }
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            <li>11</li>
+            <li>22</li>
+            <li>33</li>
         </ul>
     );
 }
