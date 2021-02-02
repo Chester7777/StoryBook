@@ -6,7 +6,7 @@ type UnControlledAccordionPropsType = {
     // collapsed: boolean
 }
 
-function UnControlledAccordion(props: UnControlledAccordionPropsType) {
+export function UnControlledAccordion(props: UnControlledAccordionPropsType) {
     // let collapsed = false;
     let [collapsed, setCollapsed] = useState(false);
     // if (collapsed === true) {
@@ -43,7 +43,7 @@ function UnControlledAccordion(props: UnControlledAccordionPropsType) {
 //     );
 // }
 
-export default UnControlledAccordion;
+
 
 type AccordionTitlePropsType = {
     title: string

@@ -1,12 +1,12 @@
 export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5
 
-type RatingPropsType = {
+export type RatingPropsType = {
     value: RatingValueType
     onClick: (value: RatingValueType) => void
 }
 
 
-function Rating(props: RatingPropsType) {
+export function Rating(props: RatingPropsType) {
     console.log("UnControlledRating rendering")
 
 
@@ -22,7 +22,7 @@ function Rating(props: RatingPropsType) {
 }
 
 
-export default Rating;
+
 
 type StarPropsType = {
     selected: boolean

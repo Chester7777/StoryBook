@@ -1,13 +1,25 @@
 import React, {useState} from "react";
 
 
+
 type PropsType = {
    onChange: (on: boolean) => void
+    defaultOn?: boolean
 }
 
-function UnControlledOnOff(props: PropsType) {
+export function UnControlledOnOff(props: PropsType, newParam: { border: string; padding: string; margin: string; backgroundColor: string; display: string; width: string; marginTop: string; height: string } = {
+    width: "30px",
+    height: "20px",
+    border: "1px solid black",
+    display: "inline-block",
+    margin: "1px",
+    padding: "2px",
+    marginTop: "20px",
+    backgroundColor:  "white"
 
-    let [on, setOn] = useState(false);
+}) {
+
+    let [on, setOn] = useState(props.defaultOn ? props.defaultOn : false);
     const onStyle = {
         width: "30px",
         height: "20px",
@@ -20,17 +32,7 @@ function UnControlledOnOff(props: PropsType) {
         backgroundColor: on ? "green" : "white"
 
     }
-    const offStyle = {
-        width: "30px",
-        height: "20px",
-        border: "1px solid black",
-        display: "inline-block",
-        margin: "1px",
-        padding: "2px",
-        marginTop: "20px",
-        backgroundColor: on ? "white" : "red"
-
-    }
+    const offStyle = newParam
     const indicatorStyle = {
         width: "10px",
         height: "10px",
@@ -61,5 +63,3 @@ function UnControlledOnOff(props: PropsType) {
     )
 }
 
-
-export default UnControlledOnOff;

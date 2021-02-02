@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 import "./App.css";
-import Accordion from "./components/Accordion/Accordion";
-import Rating, {RatingValueType} from "./components/Rating/Rating";
-import OnOff from "./components/OnOff/OnOff";
-import UnControlledAccordion from "./components/UnControlledAccordion/UnControlledAccordion";
-import UnControlledRating from "./components/UnControlledRating/UnControlledRating";
-import UnControlledOnOff from "./components/UnControlledOnOff/UnControlledOnOff";
+import {Accordion} from "./components/Accordion/Accordion";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
+import {OnOff} from "./components/OnOff/OnOff";
+import {UnControlledAccordion} from "./components/UnControlledAccordion/UnControlledAccordion";
+import {UnControlledRating} from "./components/UnControlledRating/UnControlledRating";
+import {UnControlledOnOff} from "./components/UnControlledOnOff/UnControlledOnOff";
 
 function App() {
+
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
     let [switchOn, setSwitchOn] = useState<boolean>(true)
@@ -20,7 +21,7 @@ function App() {
             {/*</div>*/}
             {/*<input type="date"/>*/}
             {/*<PageTitle title={"This is App component"}/>*/}
-            {/*<PageTitle title={"My frends"}/>*/}
+            {/*<PageTitle title={"My friends"}/>*/}
             {/*Article 1*/}
             {/*<UnControlledRating value={0}/>*/}
 
@@ -29,14 +30,14 @@ function App() {
             {/*<UnControlledRating value={4}/>*/}
             <OnOff
                 on={switchOn}
-            onChange={setSwitchOn}
+                onChange={setSwitchOn}
             />
             <Accordion
                 titleValue={"Menu"}
                 collapsed={accordionCollapsed}
                 onChange={() => {
-                setAccordionCollapsed(!accordionCollapsed)
-            }}/>
+                    setAccordionCollapsed(!accordionCollapsed)
+                }}/>
             <UnControlledAccordion titleValue={"Menu"}/>
             <UnControlledRating/>
             <UnControlledRating/>

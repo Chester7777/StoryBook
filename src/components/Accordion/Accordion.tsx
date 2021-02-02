@@ -1,39 +1,49 @@
 import {type} from "os";
 import React from "react";
 
-type AccordionPropsType = {
+export type AccordionPropsType = {
     titleValue: string
+    /**
+     * Callback that is called when any item clicked
+     */
     collapsed: boolean
     onChange: () => void
+    /**
+     * optional color oh header text
+     */
+    color?: string
+    // onClick: (value: any) => void
 }
 
-function Accordion(props: AccordionPropsType) {
+export function Accordion(props: AccordionPropsType) {
 
     return (
         <div>
             <AccordionTitle
                 title={props.titleValue}
                 onChange={props.onChange}
+                color={props.color}
             />
-            {!props.collapsed && <AccordionBody />}
+            {!props.collapsed && <AccordionBody/>}
         </div>
     );
 }
 
 
-export default Accordion;
-
-type AccordionTitlePropsType = {
+type AccordionTitlePropsType =
+{
     title: string
     onChange: () => void
-
+    color ? : string
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
-    console.log("AccordionTitle rendering");
+console.log("AccordionTitle rendering");
 
     return (
-        <h3 onClick={props.onChange}>-- {props.title} --</h3>
+        <h3
+            style={{color: props.color ? props.color : "black"}}
+            onClick={(e) => props.onChange()}>-- {props.title} --</h3>
 
     );
 }
