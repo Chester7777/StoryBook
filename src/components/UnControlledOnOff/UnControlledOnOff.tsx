@@ -7,7 +7,9 @@ type PropsType = {
     defaultOn?: boolean
 }
 
-export function UnControlledOnOff(props: PropsType, newParam: { border: string; padding: string; margin: string; backgroundColor: string; display: string; width: string; marginTop: string; height: string } = {
+export const UnControlledOnOff = React.memo(UnControlledOnOffMemo)
+
+function UnControlledOnOffMemo(props: PropsType, newParam: { border: string; padding: string; margin: string; backgroundColor: string; display: string; width: string; marginTop: string; height: string } = {
     width: "30px",
     height: "20px",
     border: "1px solid black",

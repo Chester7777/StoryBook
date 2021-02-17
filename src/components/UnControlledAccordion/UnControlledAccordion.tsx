@@ -1,18 +1,26 @@
-import {type} from "os";
-import {useState} from "react";
+import React from "react";
+import {useReducer} from "react";
+import {reducer, TOGGLE_CONSTANT} from "./Reducer";
 
 type UnControlledAccordionPropsType = {
     titleValue: string
     // collapsed: boolean
 }
 
-export function UnControlledAccordion(props: UnControlledAccordionPropsType) {
+export const UnControlledAccordion = React.memo(UnControlledAccordionMemo)
+
+function UnControlledAccordionMemo(props: UnControlledAccordionPropsType) {
     // let collapsed = false;
-    let [collapsed, setCollapsed] = useState(false);
+    // let [collapsed, setCollapsed] = useState(false);
     // if (collapsed === true) {
+
+    let [collapsed, dispatch] = useReducer(reducer, {collapsed: false});
+
+
     return (
         <div>
-            <AccordionTitle title={props.titleValue} onClick={() => {setCollapsed(!collapsed)}}/>
+            {/*<AccordionTitle title={props.titleValue} onClick={() => {setCollapsed(!collapsed)}}/>*/}
+            <AccordionTitle title={props.titleValue} onClick={() => {dispatch({type: TOGGLE_CONSTANT})}}/>
 
 
             {/*<button onClick={() => {*/}

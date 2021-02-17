@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
-import { Story, Meta } from '@storybook/react/types-6-0';
-import {Rating, RatingPropsType, RatingValueType} from "./Rating";
+import {Meta} from "@storybook/react/types-6-0";
+import {Rating, RatingValueType} from "./Rating";
 
 
 export default {

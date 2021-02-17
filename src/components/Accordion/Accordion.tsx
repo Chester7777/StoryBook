@@ -1,5 +1,9 @@
-import {type} from "os";
 import React from "react";
+
+export type ItemsType = {
+    title: string
+    value: any
+}
 
 export type AccordionPropsType = {
     titleValue: string
@@ -13,9 +17,13 @@ export type AccordionPropsType = {
      */
     color?: string
     // onClick: (value: any) => void
+    items: ItemsType[]
+    onClick: (value: any) => void
 }
 
-export function Accordion(props: AccordionPropsType) {
+export const Accordion = React.memo(AccordionMemo)
+
+ function AccordionMemo(props: AccordionPropsType) {
 
     return (
         <div>
@@ -24,7 +32,7 @@ export function Accordion(props: AccordionPropsType) {
                 onChange={props.onChange}
                 color={props.color}
             />
-            {!props.collapsed && <AccordionBody/>}
+            {!props.collapsed && <AccordionBody onClick={props.onClick} items={props.items}/>}
         </div>
     );
 }
@@ -49,18 +57,17 @@ console.log("AccordionTitle rendering");
 }
 
 
-// type AccordionBodyPropsType = {
-//     title: number
-// }
+export type AccordionBodyPropsType = {
+    items: ItemsType[]
+    onClick: (value: any) => void
+}
 
-function AccordionBody() {
+function AccordionBody(props: AccordionBodyPropsType) {
     console.log("AccordionBody rendering");
 
     return (
         <ul>
-            <li>11</li>
-            <li>22</li>
-            <li>33</li>
+            {props.items.map((i, index) => <li onClick={()=> {props.onClick(i.value)}} key={index}>{i.title}</li>)}
         </ul>
     );
 }

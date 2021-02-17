@@ -1,15 +1,14 @@
-import React, {useState} from "react";
-import { Story, Meta } from '@storybook/react/types-6-0';
+import React from "react";
+import {Meta} from "@storybook/react/types-6-0";
 import {UnControlledRating} from "./UnControlledRating";
-import {RatingValueType} from "../Rating/Rating";
 import {action} from "@storybook/addon-actions";
 
 
 export default {
-    title: 'UnControlledRating',
+    title: "UnControlledRating",
     component: UnControlledRating,
     argTypes: {
-        backgroundColor: { control: 'color' },
+        backgroundColor: {control: "color"},
     },
 } as Meta;
 
@@ -22,7 +21,6 @@ export const Rating3 = () => <UnControlledRating defaultValue={2} onChange={call
 export const Rating4 = () => <UnControlledRating defaultValue={3} onChange={callback}/>;
 export const Rating5 = () => <UnControlledRating defaultValue={4} onChange={callback}/>;
 export const Rating6 = () => <UnControlledRating defaultValue={5} onChange={callback}/>;
-
 
 
 // export const Primary = Template.bind({});

@@ -15,6 +15,7 @@ export default {
 } as Meta;
 
 const callback = action("on or off clicked");
+
 export const OnMode = () => <UnControlledOnOff defaultOn={true} onChange={callback}/>;
 export const OffMode = () => <UnControlledOnOff defaultOn={false} onChange={callback}/>;
 

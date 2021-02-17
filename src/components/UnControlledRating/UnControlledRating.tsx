@@ -1,4 +1,4 @@
-import {useState} from "react";
+import React, {useState} from "react";
 
 export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5
 type RatingPropsType = {
@@ -7,8 +7,9 @@ type RatingPropsType = {
     onChange: (value: RatingValueType) => void
 }
 
+export const UnControlledRating = React.memo(UnControlledRatingMemo)
 
-export function UnControlledRating(props: RatingPropsType) {
+function UnControlledRatingMemo(props: RatingPropsType) {
     console.log("UnControlledRating rendering")
     let [value, setValue] = useState<RatingValueType>(props.defaultValue ? props.defaultValue : 0)
 

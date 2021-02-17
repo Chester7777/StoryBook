@@ -1,3 +1,5 @@
+import React from "react";
+
 export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5
 
 export type RatingPropsType = {
@@ -5,8 +7,9 @@ export type RatingPropsType = {
     onClick: (value: RatingValueType) => void
 }
 
+export const Rating = React.memo(RatingMemo)
 
-export function Rating(props: RatingPropsType) {
+function RatingMemo(props: RatingPropsType) {
     console.log("UnControlledRating rendering")
 
 
@@ -20,8 +23,6 @@ export function Rating(props: RatingPropsType) {
         </div>
     );
 }
-
-
 
 
 type StarPropsType = {
