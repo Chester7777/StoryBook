@@ -24,18 +24,21 @@ export const ClockExample = () => {
         setInterval(() => {
             setSecond(state => state + 1)
         }, 1000)
+
     }, [second])
 
     useEffect(() => {
         setInterval(() => {
             setMinute(state => state + 1)
         }, 60000)
+
     }, [minute])
 
     useEffect(() => {
         setInterval(() => {
             setHour(state => state + 1)
         }, 600000)
+
     }, [hour])
 
 

@@ -47,9 +47,12 @@ export const SetTimeoutExample = () => {
     // })
 
     useEffect(() => {
-        setTimeout(() => {
+        const timeoutId = setTimeout(() => {
             document.title = counter.toString()
         }, 1000)
+        return () => {
+            clearTimeout(timeoutId)
+        }
     }, [counter])
 
 
@@ -72,19 +75,64 @@ export const SetIntervalExample = () => {
     // })
 
     useEffect(() => {
-        setInterval(() => {
+        const intervalId = setInterval(() => {
             setCounter(state => state + 1)
         }, 1000)
-    }, [counter])
-
+        return () => {
+            clearInterval(intervalId)
+        }
+    }, [])
 
     return <>
         Hello, counter: {counter}, face: {face}
-
     </>
 }
 
+export const ResetEffectExample = () => {
+    const [counter, setCounter] = useState(1);
 
+    console.log("ResetEffectExample")
+
+    //этот useEffect вызовется при каждой отрисовки компоненты
+    useEffect(() => {
+        console.log("render component")
+
+        return () => {
+            console.log("clean effect")
+        }
+    }, [])
+    let callback = () => {
+        setCounter(counter + 1)
+    }
+    return <>
+        Hello, {counter}: <button onClick={callback}>+</button>
+    </>
+}
+
+export const KeysTrackerExample = () => {
+    const [text, setText] = useState("");
+
+    console.log("KeysTrackerExample" + text)
+
+    //этот useEffect вызовется при каждой отрисовки компоненты
+    useEffect(() => {
+        const handler = (e: KeyboardEvent) => {
+            setText(text + e.key)
+        }
+        console.log("render component")
+        window.addEventListener("keypress", handler)
+
+        //убивает отрисовку компоненты (зачищает)
+        return () => {
+            window.addEventListener("keypress", handler)
+        }
+    }, [text])
+
+    return <>
+        My text: {text}
+
+    </>
+}
 
 
 
