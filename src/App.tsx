@@ -6,6 +6,7 @@ import {UnControlledAccordion} from "./components/UnControlledAccordion/UnContro
 import {UnControlledRating} from "./components/UnControlledRating/UnControlledRating";
 import {UnControlledOnOff} from "./components/UnControlledOnOff/UnControlledOnOff";
 import {Select} from "./components/Select/Select";
+import NewClock from "./components/Clocks/NewClock";
 
 
 function App() {
@@ -45,6 +46,8 @@ function App() {
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <UnControlledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
             <Select value={selectValue} onChange={setSelectValue} items={items}/>
+            <NewClock mode={"analog"}/>
+            <NewClock mode={"digital"}/>
         </div>
     );
 }

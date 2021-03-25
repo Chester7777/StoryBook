@@ -34,8 +34,8 @@ function UnControlledAccordionMemo(props: UnControlledAccordionPropsType) {
     )
 }
 
-//button.onclick = function () {
-
+// button.onclick = function () {
+//
 //     if (collapsed === false) {
 //         return (
 //             <div>

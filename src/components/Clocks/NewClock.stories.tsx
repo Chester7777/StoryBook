@@ -5,12 +5,17 @@ export default {
     title: "New clock demo"
 }
 
-export const NewClockExample = () => {
-
-
+export const NewClockAnalogExample = () => {
 
     return <>
-        <NewClock />
+        <NewClock mode={"analog"} />
+
+    </>
+}
+export const NewClockDigitalExample = () => {
+
+    return <>
+        <NewClock mode={"digital"} />
 
     </>
 }
